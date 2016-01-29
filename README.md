@@ -6,6 +6,13 @@ An android application who fetch content from anime-ultime.net
 
 It's a simple android application that allow you to stream content from anime-ultime.net from your device.
 
+### Screenshot
+![Screenshot01](https://raw.githubusercontent.com/Alaanor/animeUltimeTv/master/img/screenshot01.png)
+![Screenshot02](https://raw.githubusercontent.com/Alaanor/animeUltimeTv/master/img/screenshot02.png)
+![Screenshot03](https://raw.githubusercontent.com/Alaanor/animeUltimeTv/master/img/screenshot03.png)
+![Screenshot04](https://raw.githubusercontent.com/Alaanor/animeUltimeTv/master/img/screenshot04.png)
+![Screenshot05](https://raw.githubusercontent.com/Alaanor/animeUltimeTv/master/img/screenshot05.png)
+
 ## Goal
  * Make it's compactible with android TV,
 

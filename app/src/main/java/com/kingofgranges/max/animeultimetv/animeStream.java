@@ -35,7 +35,7 @@ public class animeStream extends AppCompatActivity {
 
     public boolean displayVideo(String url) {
         try {
-            VideoView videoView = (VideoView) findViewById(R.id.video2View);
+            VideoView videoView = (VideoView) findViewById(R.id.videoView);
 
             videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                 public void onCompletion(MediaPlayer mp) {
@@ -48,7 +48,14 @@ public class animeStream extends AppCompatActivity {
             Uri video = Uri.parse(url);
             videoView.setMediaController(mediaController);
             videoView.setVideoURI(video);
-            videoView.start();
+
+
+            videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+                public void onPrepared(MediaPlayer mp) {
+                    mp.start();
+                }
+            });
+
             return true;
         } catch (Exception e) {
             Toast.makeText(this, "Error connecting", Toast.LENGTH_SHORT).show();

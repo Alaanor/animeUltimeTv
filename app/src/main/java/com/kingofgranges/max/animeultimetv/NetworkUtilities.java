@@ -93,6 +93,8 @@ public class NetworkUtilities {
             response = sb.toString();
             isr.close();
             reader.close();
+            if(response == null)
+                return null;
             JSONArray result = new JSONArray(response);
             return result;
         }

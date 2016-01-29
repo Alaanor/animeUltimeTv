@@ -13,12 +13,12 @@ import android.widget.ListView;
 
 public class animeFragmentEpisode extends Fragment {
 
-    private String[] episodes;
-    private String[] link;
+    private static String[] episodes;
+    private static String[] link;
 
     public void setEpisode(String[] episodes, String[] link) {
-        this.episodes = episodes;
-        this.link = link;
+        animeFragmentEpisode.episodes = episodes;
+        animeFragmentEpisode.link = link;
     }
 
     @Override
@@ -39,12 +39,17 @@ public class animeFragmentEpisode extends Fragment {
             }
         });
 
-        if(this.episodes == null)
+        if(episodes == null)
             getActivity().onBackPressed();
 
-        if(this.episodes != null)
-            listEpisode.setAdapter(new ArrayAdapter<>(inflater.getContext(), android.R.layout.simple_list_item_1, this.episodes));
+        if(episodes != null)
+            listEpisode.setAdapter(new ArrayAdapter<>(inflater.getContext(), android.R.layout.simple_list_item_1, episodes));
         return view;
     }
 
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+
+    }
 }

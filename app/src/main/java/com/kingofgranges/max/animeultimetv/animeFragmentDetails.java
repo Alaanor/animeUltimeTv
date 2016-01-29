@@ -11,9 +11,9 @@ import android.widget.TextView;
 
 public class animeFragmentDetails extends Fragment {
 
-    private String title;
-    private String synopsis;
-    private Bitmap cover;
+    private static String title;
+    private static String synopsis;
+    private static Bitmap cover;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -23,16 +23,16 @@ public class animeFragmentDetails extends Fragment {
         final TextView txtSynopsis = (TextView) view.findViewById(R.id.txtSynopsis);
         final ImageView imgCover = (ImageView) view.findViewById(R.id.imgCover);
 
-        txtTitle.setText(this.title);
-        txtSynopsis.setText(this.synopsis);
-        imgCover.setImageBitmap(this.cover);
+        txtTitle.setText(title);
+        txtSynopsis.setText(synopsis);
+        imgCover.setImageBitmap(cover);
 
         return view;
     }
 
     public void setDetails(String title, String synopsis, Bitmap cover) {
-        this.title = title;
-        this.synopsis = synopsis;
-        this.cover = cover;
+        animeFragmentDetails.title = title;
+        animeFragmentDetails.synopsis = synopsis;
+        animeFragmentDetails.cover = cover;
     }
 }

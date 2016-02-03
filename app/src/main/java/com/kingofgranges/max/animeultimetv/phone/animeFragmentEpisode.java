@@ -1,4 +1,4 @@
-package com.kingofgranges.max.animeultimetv;
+package com.kingofgranges.max.animeultimetv.phone;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,6 +10,9 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
+import com.kingofgranges.max.animeultimetv.R;
+import com.kingofgranges.max.animeultimetv.common.animeUltime;
 
 public class animeFragmentEpisode extends Fragment {
 
@@ -32,7 +35,7 @@ public class animeFragmentEpisode extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 animeUltime au = new animeUltime();
-                String videoLink = au.getVideoLink(MainActivity.mainUrlv5 + link[position]);
+                String videoLink = au.getVideoLink(animeUltime.mainUrlv5 + link[position]);
                 Intent stream = new Intent(copyOfThis, animeStream.class);
                 stream.putExtra("streamURL", videoLink);
                 startActivity(stream);

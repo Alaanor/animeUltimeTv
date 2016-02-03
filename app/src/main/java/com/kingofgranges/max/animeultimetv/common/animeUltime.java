@@ -1,4 +1,4 @@
-package com.kingofgranges.max.animeultimetv;
+package com.kingofgranges.max.animeultimetv.common;
 
 import android.text.Html;
 
@@ -11,11 +11,10 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.Objects;
 
 public class animeUltime {
 
+    public static final String mainUrlv5 = "http://v5.anime-ultime.net/";
     public static int maxResult = 25;
     private JSONArray data;
     private String[] link;
@@ -26,16 +25,16 @@ public class animeUltime {
         try {
             this.data = NetworkUtilities.readJsonFromHttpPost(url, search);
             int k = 0;
-            for(int j = 0; j < (this.data != null ? this.data.length() : 0); j++){
+            for (int j = 0; j < (this.data != null ? this.data.length() : 0); j++) {
                 JSONObject jsonObj = this.data.getJSONObject(j);
-                if(!jsonObj.getString("format").equals("OST"))
+                if (!jsonObj.getString("format").equals("OST"))
                     k++;
             }
             result = new String[k];
             this.link = new String[k];
-            for(int i = 0, l = 0; i < (this.data != null ? this.data.length() : 0); i++){
+            for (int i = 0, l = 0; i < (this.data != null ? this.data.length() : 0); i++) {
                 JSONObject jsonObj = this.data.getJSONObject(i);
-                if(!jsonObj.getString("format").equals("OST")){
+                if (!jsonObj.getString("format").equals("OST")) {
                     result[l] = Html.fromHtml(Html.fromHtml(jsonObj.getString("title")).toString()).toString();
                     this.link[l++] = Html.fromHtml(Html.fromHtml(jsonObj.getString("url")).toString()).toString();
                 }
@@ -46,7 +45,7 @@ public class animeUltime {
         return result;
     }
 
-    public String[][] getPageInformation(int offset){
+    public String[][] getPageInformation(int offset) {
         try {
             String rawDom = NetworkUtilities.readHtmlFromUrl(this.link[offset]);
             Document dom = Jsoup.parse(rawDom);
@@ -61,7 +60,7 @@ public class animeUltime {
             String[] list = new String[liList.size()];
             String[] link = new String[liList.size()];
             int i = 0;
-            for(Element item : liList){
+            for (Element item : liList) {
                 list[i] = item.select("div.number").first().text();
                 link[i] = item.select("a[href]").first().attr("href");
                 i++;
@@ -71,7 +70,7 @@ public class animeUltime {
             String img = divImg.attr("src");
             String title = divTitle.text();
 
-            String[][] result = new String[3][liList.size()<2?3:liList.size()];
+            String[][] result = new String[3][liList.size() < 2 ? 3 : liList.size()];
             result[0][0] = synopsis;
             result[0][1] = img;
             result[0][2] = title;
@@ -84,13 +83,28 @@ public class animeUltime {
         return null;
     }
 
-    public String getVideoLink(String urlTarget){
+    public String getVideoLink(String urlTarget) {
         try {
             String rawDom = null;
             rawDom = NetworkUtilities.readHtmlFromUrl(urlTarget);
             Document dom = Jsoup.parse(rawDom);
 
-            String url = dom.select("div.VideoDDL > div.download").first().select("a[href]").first().attr("href");
+            String url = null;
+            String val;
+            JSONObject val2;
+            try {
+                Elements val3 = dom.select("div#leftContainer");
+                val3 = val3.select("script");
+                val = val3.html();
+                val = val.replaceAll("^.*var.ddl_links.=.", "");
+                val2 = new JSONObject(val);
+                val = val2.getString("webm");
+                val = val.replaceAll("\".*?\".*?\"", "");
+                val = val.replaceAll("\\{","").replaceAll("\\}", "");
+                url = val.replaceAll("\"", "").replaceAll("\\\\/", "/");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
 
             return url;
         } catch (IOException e) {

@@ -1,4 +1,4 @@
-package com.kingofgranges.max.animeultimetv;
+package com.kingofgranges.max.animeultimetv.tv;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -14,12 +14,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.support.v7.app.ActionBar;
 
+import com.kingofgranges.max.animeultimetv.R;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-public class animeDetails extends AppCompatActivity implements android.support.v7.app.ActionBar.TabListener{
+public class animeDetailsTv extends AppCompatActivity{
 
     public String title;
     public String synopsis;
@@ -62,10 +64,10 @@ public class animeDetails extends AppCompatActivity implements android.support.v
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
 
-        animeFragmentDetails details = new animeFragmentDetails();
+        animeFragmentDetailsTv details = new animeFragmentDetailsTv();
         details.setDetails(this.title, this.synopsis, this.cover);
 
-        animeFragmentEpisode episodes = new animeFragmentEpisode();
+        animeFragmentEpisodeTv episodes = new animeFragmentEpisodeTv();
         episodes.setEpisode(this.episode, this.link);
 
         adapter.addFragment(details, "Information");
@@ -111,21 +113,6 @@ public class animeDetails extends AppCompatActivity implements android.support.v
             default:
                 return super.onOptionsItemSelected(item);
         }
-    }
-
-    @Override
-    public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft) {
-
-    }
-
-    @Override
-    public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction ft) {
-
-    }
-
-    @Override
-    public void onTabReselected(ActionBar.Tab tab, FragmentTransaction ft) {
-
     }
 
 }

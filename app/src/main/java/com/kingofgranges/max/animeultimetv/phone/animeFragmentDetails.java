@@ -1,4 +1,4 @@
-package com.kingofgranges.max.animeultimetv;
+package com.kingofgranges.max.animeultimetv.phone;
 
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -8,6 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.kingofgranges.max.animeultimetv.R;
 
 public class animeFragmentDetails extends Fragment {
 

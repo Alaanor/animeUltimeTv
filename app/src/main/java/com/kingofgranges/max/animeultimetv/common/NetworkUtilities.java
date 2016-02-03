@@ -1,4 +1,4 @@
-package com.kingofgranges.max.animeultimetv;
+package com.kingofgranges.max.animeultimetv.common;
 
 import android.annotation.TargetApi;
 import android.os.Build;

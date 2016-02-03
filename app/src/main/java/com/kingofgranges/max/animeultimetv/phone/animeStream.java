@@ -1,4 +1,4 @@
-package com.kingofgranges.max.animeultimetv;
+package com.kingofgranges.max.animeultimetv.phone;
 
 import android.content.Intent;
 import android.media.MediaPlayer;
@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.Toast;
 import android.widget.VideoView;
 import android.widget.MediaController;
+
+import com.kingofgranges.max.animeultimetv.R;
 
 public class animeStream extends AppCompatActivity {
 
@@ -48,7 +50,6 @@ public class animeStream extends AppCompatActivity {
             Uri video = Uri.parse(url);
             videoView.setMediaController(mediaController);
             videoView.setVideoURI(video);
-
 
             videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
                 public void onPrepared(MediaPlayer mp) {

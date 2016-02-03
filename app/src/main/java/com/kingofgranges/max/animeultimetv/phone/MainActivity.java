@@ -1,34 +1,29 @@
-package com.kingofgranges.max.animeultimetv;
+package com.kingofgranges.max.animeultimetv.phone;
 
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.StrictMode;
-import android.support.annotation.StringRes;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.widget.SearchView;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.MediaController;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
-import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.VideoView;
+
+import com.kingofgranges.max.animeultimetv.R;
+import com.kingofgranges.max.animeultimetv.common.animeUltime;
 
 import org.json.JSONException;
-import org.w3c.dom.Text;
-
 import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static final String mainUrlv5 = "http://v5.anime-ultime.net/";
     public final animeUltime au = new animeUltime();
 
     @Override
@@ -38,17 +33,13 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         if (android.os.Build.VERSION.SDK_INT > 9) {
-            StrictMode.ThreadPolicy policy =
-                    new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
         }
     }
 
     @Override
     public boolean onCreateOptionsMenu(final Menu menu) {
-        /*
-         * Search /// http://www.anime-ultime.net/search/opensearchSuggest.php?term=
-         * */
         getMenuInflater().inflate(R.menu.menu_main, menu);
         final SearchView searchView = (SearchView) MenuItemCompat.getActionView(menu.findItem(R.id.action_search));
         SearchManager searchManager = (SearchManager) getSystemService(SEARCH_SERVICE);

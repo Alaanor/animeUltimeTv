@@ -1,4 +1,4 @@
-package com.kingofgranges.max.animeultimetv.common;
+package com.kingofgranges.max.animeultimetv.libs;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

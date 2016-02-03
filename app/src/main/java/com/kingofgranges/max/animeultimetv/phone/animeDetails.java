@@ -68,7 +68,7 @@ public class animeDetails extends AppCompatActivity implements android.support.v
         details.setDetails(this.title, this.synopsis, this.cover);
 
         animeFragmentEpisode episodes = new animeFragmentEpisode();
-        episodes.setEpisode(this.episode, this.link);
+        episodes.setEpisode(this.title, this.episode, this.link);
 
         adapter.addFragment(details, "Information");
         adapter.addFragment(episodes, "Épisode(s)");

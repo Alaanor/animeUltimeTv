@@ -12,7 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.kingofgranges.max.animeultimetv.R;
-import com.kingofgranges.max.animeultimetv.common.animeUltime;
+import com.kingofgranges.max.animeultimetv.libs.animeUltime;
 import com.kingofgranges.max.animeultimetv.phone.animeStream;
 
 public class animeFragmentEpisodeTv extends Fragment {

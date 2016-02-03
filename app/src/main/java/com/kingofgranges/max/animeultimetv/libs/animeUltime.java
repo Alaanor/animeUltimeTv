@@ -1,4 +1,4 @@
-package com.kingofgranges.max.animeultimetv.common;
+package com.kingofgranges.max.animeultimetv.libs;
 
 import android.text.Html;
 
@@ -68,7 +68,7 @@ public class animeUltime {
 
             String synopsis = divSynopsis.text();
             String img = divImg.attr("src");
-            String title = divTitle.text();
+            String title = divTitle.text().replaceAll("vostfr", "");
 
             String[][] result = new String[3][liList.size() < 2 ? 3 : liList.size()];
             result[0][0] = synopsis;

@@ -2,4 +2,9 @@
     <string name="app_name">animeUltimeTv</string>
     <string name="search">Search</string>
     <string name="streamTitle">Vidéo</string>
+    <string name="openDrawer">Ouvrir</string>
+    <string name="closeDrawer">Fermer</string>
+    <string name="history">Historique</string>
+    <string name="historyDelete">Supprimer l\'historique</string>
+    <string name="historyRefresh">Rafraichir l\'historique</string>
 </resources>

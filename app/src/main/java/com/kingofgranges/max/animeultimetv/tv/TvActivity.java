@@ -16,7 +16,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 import com.kingofgranges.max.animeultimetv.R;
-import com.kingofgranges.max.animeultimetv.common.animeUltime;
+import com.kingofgranges.max.animeultimetv.libs.animeUltime;
 import org.json.JSONException;
 import java.io.IOException;
 

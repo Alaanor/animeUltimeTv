@@ -12,14 +12,17 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.kingofgranges.max.animeultimetv.R;
-import com.kingofgranges.max.animeultimetv.common.animeUltime;
+import com.kingofgranges.max.animeultimetv.libs.History;
+import com.kingofgranges.max.animeultimetv.libs.animeUltime;
 
 public class animeFragmentEpisode extends Fragment {
 
     private static String[] episodes;
     private static String[] link;
+    private static String animeName;
 
-    public void setEpisode(String[] episodes, String[] link) {
+    public void setEpisode(String animeName, String[] episodes, String[] link) {
+        animeFragmentEpisode.animeName = animeName;
         animeFragmentEpisode.episodes = episodes;
         animeFragmentEpisode.link = link;
     }
@@ -35,9 +38,14 @@ public class animeFragmentEpisode extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 animeUltime au = new animeUltime();
+                History hist = new History(copyOfThis);
+
                 String videoLink = au.getVideoLink(animeUltime.mainUrlv5 + link[position]);
                 Intent stream = new Intent(copyOfThis, animeStream.class);
                 stream.putExtra("streamURL", videoLink);
+
+                hist.addHistory(animeName, episodes[position], videoLink);
+
                 startActivity(stream);
             }
         });

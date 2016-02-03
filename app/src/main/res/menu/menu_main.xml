@@ -7,4 +7,9 @@
         android:title="@string/search"
         app:actionViewClass="android.support.v7.widget.SearchView"
         app:showAsAction="ifRoom|collapseActionView"/>
+    <item
+        android:id="@+id/action_history"
+        android:icon="@drawable/ic_history"
+        android:title="@string/history"
+        app:showAsAction="always"/>
 </menu>

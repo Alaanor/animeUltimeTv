@@ -1,8 +1,4 @@
-package com.kingofgranges.max.animeultimetv.common;
-
-import android.annotation.TargetApi;
-import android.os.Build;
-import android.widget.Toast;
+package com.kingofgranges.max.animeultimetv.libs;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -12,14 +8,10 @@ import java.io.OutputStreamWriter;
 import java.io.Reader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.URLConnection;
-import java.net.URLEncoder;
 import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
 
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
 public class NetworkUtilities {
 
@@ -61,6 +53,8 @@ public class NetworkUtilities {
 
         String response = null;
         String parameters = "search="+search;
+        if(search.length() < 2)
+            return null;
         try
         {
             URL url = new URL(urlTarget);

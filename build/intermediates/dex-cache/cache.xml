@@ -1,12 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" >
-
-    <item
-        jar="/home/data/dev/109_Android/animeUltimeTv/app/build/intermediates/exploded-aar/com.android.support/leanback-v17/23.1.1/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="44c89430f058b695dd27da32de646c4d2d348678">
-        <dex dex="/home/data/dev/109_Android/animeUltimeTv/app/build/intermediates/pre-dexed/release/com.android.support-leanback-v17-23.1.1_ac3509e5a52180dd51bf4dc9e51915844927aad3.jar" />
-    </item>
-
-</items>
+<items version="2" />

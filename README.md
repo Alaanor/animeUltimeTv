@@ -22,7 +22,10 @@ It's a simple android application that allow you to stream content from anime-ul
 <img src="https://raw.githubusercontent.com/Alaanor/animeUltimeTv/master/img/screenshotTv05.png" width="256"/>
 
 ## Goal
- * Make it's compatible with android TV.
+ * [x] Make it's compatible with android TV.
+ * [x] Adding logo
+ * [ ] Adding history
+ * [ ] Improve android TV interface with standard leanback.
 
 ## Install on your android device
  * Enable from your android device in Settings -> Applications and check "Unknown sources".

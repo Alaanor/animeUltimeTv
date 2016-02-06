@@ -10,11 +10,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.kingofgranges.max.animeultimetv.R;
@@ -34,8 +36,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         if (android.os.Build.VERSION.SDK_INT > 9) {
-            StrictMode.ThreadPolicy policy =
-                    new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
         }
     }
@@ -43,8 +44,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(final Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
-
-        /* Search */
         final SearchView searchView = (SearchView) MenuItemCompat.getActionView(menu.findItem(R.id.action_search));
         SearchManager searchManager = (SearchManager) getSystemService(SEARCH_SERVICE);
         searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
@@ -75,6 +74,14 @@ public class MainActivity extends AppCompatActivity {
                 android.R.layout.simple_list_item_1, android.R.id.text1, values);
         listView.setAdapter(adapter);
         final Context context = this;
+
+        final TextView txtSmiley = (TextView) findViewById(R.id.txtBackground);
+
+        if(search.length() > 0){
+            txtSmiley.setVisibility(View.INVISIBLE);
+        } else {
+            txtSmiley.setVisibility(View.VISIBLE);
+        }
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

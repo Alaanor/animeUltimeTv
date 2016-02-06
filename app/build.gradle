@@ -8,8 +8,8 @@ android {
         applicationId "com.kingofgranges.max.animeultimetv"
         minSdkVersion 17
         targetSdkVersion 23
-        versionCode 2
-        versionName "1.1"
+        versionCode 4
+        versionName "1.2.1"
     }
     buildTypes {
         release {

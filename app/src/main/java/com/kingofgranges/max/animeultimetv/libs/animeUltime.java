@@ -98,10 +98,31 @@ public class animeUltime {
                 val = val3.html();
                 val = val.replaceAll("^.*var.ddl_links.=.", "");
                 val2 = new JSONObject(val);
-                val = val2.getString("webm");
-                val = val.replaceAll("\".*?\".*?\"", "");
-                val = val.replaceAll("\\{","").replaceAll("\\}", "");
-                url = val.replaceAll("\"", "").replaceAll("\\\\/", "/");
+                val2 = val2.getJSONObject("webm");
+
+                try {
+                    url = val2.getString("1080p");
+                } catch (JSONException e) {
+                    try {
+                        url = val2.getString("720p");
+                    } catch (JSONException f) {
+                        try {
+                            url = val2.getString("480p");
+                        } catch (JSONException g) {
+                            try {
+                                url = val2.getString("320p");
+                            } catch (JSONException h) {
+                                val = val3.html();
+                                val = val.replaceAll("^.*var.ddl_links.=.", "");
+                                val2 = new JSONObject(val);
+                                val = val2.getString("webm");
+                                val = val.replaceAll("\".*?\".*?\"", "");
+                                val = val.replaceAll("\\{", "").replaceAll("\\}", "");
+                                url = val.replaceAll("\"", "").replaceAll("\\\\/", "/");
+                            }
+                        }
+                    }
+                }
             } catch (JSONException e) {
                 e.printStackTrace();
             }

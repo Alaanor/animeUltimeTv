@@ -1,14 +1,17 @@
 package com.kingofgranges.max.animeultimetv.phone;
 
+import android.content.Context;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
-import android.os.Build;
+import android.net.wifi.WifiManager;
+import android.os.PowerManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 import android.widget.VideoView;
 import android.widget.MediaController;
@@ -18,6 +21,8 @@ import com.kingofgranges.max.animeultimetv.R;
 public class animeStream extends AppCompatActivity {
 
     private String streamURL;
+    private WifiManager.WifiLock wifiLock;
+    private MediaPlayer mp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,10 +44,14 @@ public class animeStream extends AppCompatActivity {
 
     public boolean displayVideo(String url) {
         try {
-            VideoView videoView = (VideoView) findViewById(R.id.videoView);
+            this.wifiLock = ((WifiManager) getSystemService(Context.WIFI_SERVICE)).createWifiLock(WifiManager.WIFI_MODE_FULL, "mylock");
+            this.wifiLock.acquire();
+
+            final VideoView videoView = (VideoView) findViewById(R.id.videoView);
 
             videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                 public void onCompletion(MediaPlayer mp) {
+                    wifiLock.release();
                     onBackPressed();
                 }
             });
@@ -52,9 +61,10 @@ public class animeStream extends AppCompatActivity {
             Uri video = Uri.parse(url);
             videoView.setMediaController(mediaController);
             videoView.setVideoURI(video);
-
             videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
                 public void onPrepared(MediaPlayer mp) {
+                    mp.prepareAsync();
+                    mp.setWakeMode(getApplicationContext(), PowerManager.PARTIAL_WAKE_LOCK);
                     mp.start();
                 }
             });
@@ -65,4 +75,12 @@ public class animeStream extends AppCompatActivity {
             return false;
         }
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(this.wifiLock != null)
+            this.wifiLock.release();
+    }
+
 }

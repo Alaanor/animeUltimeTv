@@ -63,7 +63,6 @@ public class animeStream extends AppCompatActivity {
             videoView.setVideoURI(video);
             videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
                 public void onPrepared(MediaPlayer mp) {
-                    mp.prepareAsync();
                     mp.setWakeMode(getApplicationContext(), PowerManager.PARTIAL_WAKE_LOCK);
                     mp.start();
                 }

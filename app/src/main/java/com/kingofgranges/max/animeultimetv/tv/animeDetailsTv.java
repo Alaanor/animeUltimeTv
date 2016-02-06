@@ -68,7 +68,7 @@ public class animeDetailsTv extends AppCompatActivity{
         details.setDetails(this.title, this.synopsis, this.cover);
 
         animeFragmentEpisodeTv episodes = new animeFragmentEpisodeTv();
-        episodes.setEpisode(this.episode, this.link);
+        episodes.setEpisode(this.title, this.episode, this.link);
 
         adapter.addFragment(details, "Information");
         adapter.addFragment(episodes, "Épisode(s)");

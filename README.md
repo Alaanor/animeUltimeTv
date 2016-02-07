@@ -23,7 +23,7 @@ It's a simple android application that allow you to stream content from anime-ul
 ## Goal
  * [x] Make it's compatible with android TV.
  * [x] Adding logo
- * [ ] Adding history
+ * [x] Adding history
  * [ ] Improve android TV interface with standard leanback.
 
 ## Install on your android device

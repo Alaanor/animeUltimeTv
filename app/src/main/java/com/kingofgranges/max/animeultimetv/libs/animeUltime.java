@@ -85,7 +85,7 @@ public class animeUltime {
 
     public String getVideoLink(String urlTarget) {
         try {
-            String rawDom = null;
+            String rawDom;
             rawDom = NetworkUtilities.readHtmlFromUrl(urlTarget);
             Document dom = Jsoup.parse(rawDom);
 
@@ -98,7 +98,11 @@ public class animeUltime {
                 val = val3.html();
                 val = val.replaceAll("^.*var.ddl_links.=.", "");
                 val2 = new JSONObject(val);
-                val2 = val2.getJSONObject("webm");
+                try {
+                    val2 = val2.getJSONObject("mp4");
+                } catch(JSONException d){
+                    val2 = val2.getJSONObject("webm");
+                }
 
                 try {
                     url = val2.getString("1080p");
@@ -123,6 +127,7 @@ public class animeUltime {
                         }
                     }
                 }
+
             } catch (JSONException e) {
                 e.printStackTrace();
             }

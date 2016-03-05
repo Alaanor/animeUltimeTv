@@ -49,7 +49,7 @@ public class animeStream extends AppCompatActivity {
             MediaController mediaController = new MediaController(this);
             mediaController.setAnchorView(videoView);
             videoView.setMediaController(mediaController);
-            videoView.setVideoURI(Uri.parse(url));
+            videoView.setVideoURI(Uri.parse(url.replace(" ", "%20")));
             videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
                 public void onPrepared(MediaPlayer mp) {
                     mp.setWakeMode(getApplicationContext(), PowerManager.PARTIAL_WAKE_LOCK);

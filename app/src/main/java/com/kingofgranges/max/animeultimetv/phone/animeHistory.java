@@ -77,12 +77,19 @@ public class animeHistory extends AppCompatActivity{
 
         ListView itemList = (ListView) findViewById(R.id.listView);
         List<Map<String, String>> data = new ArrayList<>();
-        for (String[] element : histData) {
-            Map<String, String> anime = new HashMap<>(2);
-            anime.put("title", element[1] + " " + element[0]);
-            anime.put("date", element[3]);
-            data.add(anime);
+
+        try{
+            for (String[] element : histData) {
+                Map<String, String> anime = new HashMap<>(2);
+                anime.put("title", element[1] + " " + element[0]);
+                anime.put("date", element[3]);
+                data.add(anime);
+            }
+        } catch (Exception e){
+            hist.deleteHistory();
+            return;
         }
+
         SimpleAdapter adapter = new SimpleAdapter(this, data,
                 android.R.layout.simple_list_item_2,
                 new String[] {"title", "date"},

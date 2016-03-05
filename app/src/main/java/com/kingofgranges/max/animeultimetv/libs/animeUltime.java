@@ -1,5 +1,6 @@
 package com.kingofgranges.max.animeultimetv.libs;
 
+import android.os.Debug;
 import android.text.Html;
 
 import org.json.JSONArray;
@@ -98,36 +99,22 @@ public class animeUltime {
                 val = val3.html();
                 val = val.replaceAll("^.*var.ddl_links.=.", "");
                 val2 = new JSONObject(val);
-                try {
+
+                if(val2.has("mp4"))
                     val2 = val2.getJSONObject("mp4");
-                } catch(JSONException d){
+                else
                     val2 = val2.getJSONObject("webm");
-                }
 
-                try {
+                if(val2.has("1080p"))
                     url = val2.getString("1080p");
-                } catch (JSONException e) {
-                    try {
-                        url = val2.getString("720p");
-                    } catch (JSONException f) {
-                        try {
-                            url = val2.getString("480p");
-                        } catch (JSONException g) {
-                            try {
-                                url = val2.getString("320p");
-                            } catch (JSONException h) {
-                                val = val3.html();
-                                val = val.replaceAll("^.*var.ddl_links.=.", "");
-                                val2 = new JSONObject(val);
-                                val = val2.getString("webm");
-                                val = val.replaceAll("\".*?\".*?\"", "");
-                                val = val.replaceAll("\\{", "").replaceAll("\\}", "");
-                                url = val.replaceAll("\"", "").replaceAll("\\\\/", "/");
-                            }
-                        }
-                    }
-                }
-
+                else if(val2.has("720p"))
+                    url = val2.getString("720p");
+                else if(val2.has("480p"))
+                    url = val2.getString("480p");
+                else if(val2.has("320p"))
+                    url = val2.getString("320p");
+                else
+                    return null;
             } catch (JSONException e) {
                 e.printStackTrace();
             }

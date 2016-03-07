@@ -1,7 +1,13 @@
 package com.kingofgranges.max.animeultimetv.libs;
 
+import android.content.Context;
+import android.graphics.Point;
 import android.os.Debug;
 import android.text.Html;
+import android.util.DisplayMetrics;
+import android.util.Log;
+import android.view.Display;
+import android.view.WindowManager;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -84,11 +90,16 @@ public class animeUltime {
         return null;
     }
 
-    public String getVideoLink(String urlTarget) {
+    public String getVideoLink(Context context, String urlTarget) {
         try {
             String rawDom;
             rawDom = NetworkUtilities.readHtmlFromUrl(urlTarget);
             Document dom = Jsoup.parse(rawDom);
+
+            WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+            DisplayMetrics metrics = new DisplayMetrics();
+            wm.getDefaultDisplay().getMetrics(metrics);
+            int x = metrics.widthPixels;
 
             String url = null;
             String val;
@@ -105,11 +116,11 @@ public class animeUltime {
                 else
                     val2 = val2.getJSONObject("webm");
 
-                if(val2.has("1080p"))
+                if(val2.has("1080p") && x >= 1080)
                     url = val2.getString("1080p");
-                else if(val2.has("720p"))
+                else if(val2.has("720p") && x >= 720)
                     url = val2.getString("720p");
-                else if(val2.has("480p"))
+                else if(val2.has("480p") && x >= 480)
                     url = val2.getString("480p");
                 else if(val2.has("320p"))
                     url = val2.getString("320p");

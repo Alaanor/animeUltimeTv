@@ -41,7 +41,7 @@ public class animeFragmentEpisodeTv extends Fragment {
                 animeUltime au = new animeUltime();
                 History hist = new History(copyOfThis);
 
-                String videoLink = au.getVideoLink(animeUltime.mainUrlv5 + link[position]);
+                String videoLink = au.getVideoLink(getContext(), animeUltime.mainUrlv5 + link[position]);
                 Intent stream = new Intent(copyOfThis, animeStream.class);
                 stream.putExtra("streamURL", videoLink);
 

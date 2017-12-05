@@ -7,18 +7,23 @@ It's a simple android application that allow you to stream content from anime-ul
 
 ### Screenshot
 #### Android smartphone
-<img src="https://raw.githubusercontent.com/Alaanor/animeUltimeTv/master/img/screenshot01.png" height="256"/>
-<img src="https://raw.githubusercontent.com/Alaanor/animeUltimeTv/master/img/screenshot02.png" height="256"/>
-<img src="https://raw.githubusercontent.com/Alaanor/animeUltimeTv/master/img/screenshot03.png" height="256"/>
-<img src="https://raw.githubusercontent.com/Alaanor/animeUltimeTv/master/img/screenshot04.png" height="256"/>
-<img src="https://raw.githubusercontent.com/Alaanor/animeUltimeTv/master/img/screenshot05.png" height="256"/>
+
+<p float="left">
+  <img src="https://raw.githubusercontent.com/Alaanor/animeUltimeTv/master/img/screenshot01.png" height="256"/>
+  <img src="https://raw.githubusercontent.com/Alaanor/animeUltimeTv/master/img/screenshot02.png" height="256"/>
+  <img src="https://raw.githubusercontent.com/Alaanor/animeUltimeTv/master/img/screenshot03.png" height="256"/>
+  <img src="https://raw.githubusercontent.com/Alaanor/animeUltimeTv/master/img/screenshot04.png" height="256"/>
+  <img src="https://raw.githubusercontent.com/Alaanor/animeUltimeTv/master/img/screenshot05.png" height="256"/>
+</p>
 
 #### Android TV
-<img src="https://raw.githubusercontent.com/Alaanor/animeUltimeTv/master/img/screenshotTv01.png" width="256"/>
-<img src="https://raw.githubusercontent.com/Alaanor/animeUltimeTv/master/img/screenshotTv02.png" width="256"/>
-<img src="https://raw.githubusercontent.com/Alaanor/animeUltimeTv/master/img/screenshotTv03.png" width="256"/>
-<img src="https://raw.githubusercontent.com/Alaanor/animeUltimeTv/master/img/screenshotTv04.png" width="256"/>
-<img src="https://raw.githubusercontent.com/Alaanor/animeUltimeTv/master/img/screenshotTv05.png" width="256"/>
+<p float="left">
+  <img src="https://raw.githubusercontent.com/Alaanor/animeUltimeTv/master/img/screenshotTv01.png" width="256"/>
+  <img src="https://raw.githubusercontent.com/Alaanor/animeUltimeTv/master/img/screenshotTv02.png" width="256"/>
+  <img src="https://raw.githubusercontent.com/Alaanor/animeUltimeTv/master/img/screenshotTv03.png" width="256"/>
+  <img src="https://raw.githubusercontent.com/Alaanor/animeUltimeTv/master/img/screenshotTv04.png" width="256"/>
+  <img src="https://raw.githubusercontent.com/Alaanor/animeUltimeTv/master/img/screenshotTv05.png" width="256"/>
+</p>
 
 ## Goal
  * [x] Make it's compatible with android TV.

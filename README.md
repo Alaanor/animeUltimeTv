@@ -1,6 +1,8 @@
 # animeUltimeTv
 An android application who fetch content from anime-ultime.net
 
+**Current state: Abandoned and probably not functional anymore.**
+
 ## Project animeUtlimeTv <img src="https://github.com/Alaanor/animeUltimeTv/blob/master/img/icon.png?raw=true" height="32px"/>
 It's a simple android application that allow you to stream content from anime-ultime.net from your device.<br>
 <img src="https://github.com/Alaanor/animeUltimeTv/blob/master/img/icon.png?raw=true" height="128px"/>
